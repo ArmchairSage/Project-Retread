@@ -6,7 +6,7 @@ RETREAD is an acronym for **R**ain-or-shine **E**lectronic **T**y**RE** **A**dhe
 
 ## Needed Context and Expositional Information
 >[!IMPORTANT]
->***This project is based off of automotive manufacturer Nissan's _ATTESA_ system, particularly the ATTESA E-TS variant. This is not meant to be an attempt at "forging" Nissan's work, rather this is just a personal side project learning from what Nissan has developed. Think of it as a tribute to Nissan's technological works.***
+>***This project is based off of automotive manufacturer Nissan's _ATTESA_ four-wheel drive system, particularly the ATTESA E-TS variant. This is not meant to be an attempt at "forging" Nissan's work, rather this is just a personal side project learning from what Nissan has developed. Think of it as a tribute to Nissan and their contributions in technology and engineering.***
 ><br/>_Read for further information since I am not a qualified mechanic with the proper knowledge, nor do I own and have experience using an ATTESA-fitted vehicle: https://en.wikipedia.org/wiki/ATTESA_
 
 <br/>ATTESA is a four-wheel drive system used in some Nissan cars. It stands for ***<ins>A</ins>dvanced <ins>T</ins>otal <ins>T</ins>raction <ins>E</ins>ngineering <ins>S</ins>ystem for <ins>A</ins>ll-Terrain***, with the E-TS version referring to ***<ins>E</ins>lectronic <ins>T</ins>orque <ins>S</ins>plit***.
@@ -29,8 +29,8 @@ As an example:
 
 In practice, a vehicle that has ATTESA E-TS performs like a rear wheel drive vehicle in normal conditions, but can also recover control when conditions aren't as optimal.
 
-## Project Intention(s)
-***Too be clear, I'm not going to build a four-wheel drive system from scratch.*** That would require **WAY** too much time and resources on my part, not to mention my lack of experience in Mechanical Engineering.
+## Project Intentions
+To be clear, ***I'm not going to build a four-wheel drive system from scratch.*** That would require **WAY** too much time and resources on my part, not to mention my lack of experience in Mechanical Engineering.
 
 Rather, I'm focusing on ***how*** you detect a loss of tyre grip, rather than ***what*** you do to mitigate it.
 
