@@ -1,5 +1,5 @@
 # Project RETREAD
-Personal side project based on measuring and analysing data on tyre-road grip.
+Personal side project based on measuring and analysing data directly from the friction between road tyres and terrain.
 
 RETREAD is an acronym for **R**ain-or-shine **E**lectronic **T**y**RE** **A**dhesion **D**etector 
 <br/>_(thanks to https://acronymify.com/ for helping come up with that one)_<br/><br/>
@@ -45,6 +45,6 @@ Thus the main goal of this project is to design software that can...
 - Collect and store the data obtained from the above measurements.
 - Display this data in an understandable way for analysis, monitoring, safety etc.
 
-Once finished, the idea is to test the software within the tyre(s) of an actual car, exposed to different weather and terrain conditions in a certain time period.
+Once finished, the idea is to test the software within the tyre(s) of an actual car, exposed to different weather and terrain conditions within a certain time period.
 This may be achieved using an [STM32](https://en.wikipedia.org/wiki/STM32) microcontroller paired with an MEMS (<ins>M</ins>icro-<ins>E</ins>lectro-<ins>M</ins>echanical <ins>S</ins>ystem) such as the [IIS3DWB](https://www.st.com/en/mems-and-sensors/iis3dwb.html) or the [LSM6DSV320X](https://www.st.com/en/mems-and-sensors/lsm6dsv320x.html).
 But we'll cross that bridge when we get there.
