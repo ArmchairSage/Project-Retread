@@ -37,7 +37,14 @@ Rather, I'm focusing on ***how*** you detect a loss of tyre grip, rather than **
 Earlier it was mentioned that:
 >Said system is controlled by a 16-bit computer that measures the speed of each wheel via the <ins>A</ins>nti-lock <ins>B</ins>rake <ins>S</ins>ystem (ABS) sensors. A G-Sensor also feeds lateral and longitudinal inputs, which controls both the ABS and ATTESA E-TS system.
 
-This is where part of the inspiration lies, along with [this article about directly measuring the friction between your tyres and the road](https://polyn.ai/gaining-precision-in-tire-road-grip-measurement/).
+This is where part of the inspiration lies, along with [this article about directly measuring the friction between your tyres and the road](https://polyn.ai/gaining-precision-in-tire-road-grip-measurement/), particularly this section of text:
+>To address this gap, new emerging technologies are exploring direct sensing methods. These include <ins>***tire-embedded sensors that monitor vibration at the contact patch, along with edge AI chips that interpret data from accelerometers of standard TPMS nodes in tires***</ins>. Such innovations aim to give vehicles the ability to sense road conditions more like a human driver, through feel rather than inference.
 
-Thus the main goal of this project is to ***design software that can be used to detect how much grip a tyre has in various circumstances***, and being able to ***read, interpret and analyse the data collected.*** 
-<br/>_Perhaps it may be used in testing an ATTESA-like system? That might be far-fetched and too ambitious at the moment._
+Thus the main goal of this project is to design software that can... 
+- Determine how much grip a tyre has in various circumstances <ins>by directly measuring the friction between the road and the tyre in real-time</ins>.
+- Collect and store the data obtained from the above measurements.
+- Display this data in an understandable way for analysis, monitoring, safety etc.
+
+Once finished, the idea is to test the software within the tyre(s) of an actual car, exposed to different weather and terrain conditions in a certain time period.
+This may be achieved using an [STM32](https://en.wikipedia.org/wiki/STM32) microcontroller paired with an MEMS (<ins>M</ins>icro-<ins>E</ins>lectro-<ins>M</ins>echanical <ins>S</ins>ystem) such as the [IIS3DWB](https://www.st.com/en/mems-and-sensors/iis3dwb.html) or the [LSM6DSV320X](https://www.st.com/en/mems-and-sensors/lsm6dsv320x.html).
+But we'll cross that bridge when we get there.
