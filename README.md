@@ -48,3 +48,39 @@ Thus the main goal of this project is to design software that can...
 Once finished, the idea is to test the software within the tyre(s) of an actual car, exposed to different weather and terrain conditions within a certain time period.
 This may be achieved using an [STM32](https://en.wikipedia.org/wiki/STM32) microcontroller paired with an MEMS (<ins>M</ins>icro-<ins>E</ins>lectro-<ins>M</ins>echanical <ins>S</ins>ystem) such as the [IIS3DWB](https://www.st.com/en/mems-and-sensors/iis3dwb.html) or the [LSM6DSV320X](https://www.st.com/en/mems-and-sensors/lsm6dsv320x.html).
 But we'll cross that bridge when we get there.
+
+<!-- STM32 picks:
+* STM32H743 - top pick
+    - Cortex-M7 @ 480 MHz, 1 MB SRAM, TCM (zero-wait-state access for DSP)
+    - 3× 16-bit ADCs (2.4 MSPS each, 7.2 MSPS combined in interleaved mode)
+    - Specifically called out in ST's own ecosystem as the board of choice for "high-performance vibration or signal analysis" and "predictive-maintenance vibration classifier"
+    - Handles 50+ kSPS triaxial acquisition with headroom for real-time FFT and even on-device ML anomaly detection
+    - 10/100 Ethernet + CAN-FD for vehicle integration
+    - Overkill for simple logging, but the right ceiling for production
+
+* STM32G474 - best ADC per £
+    - Cortex-M4 @ 170 MHz, 320 KB SRAM
+    - 3 independent 12-bit ADCs — the standout feature. Each can run up to 5 MSPS (tested at ~11 MSPS overclocked), and they can be interleaved for 10+ MSPS combined
+    - Community consensus: "the fastest ADC I've found comparing to F4 / F7 / H7" in single-ADC mode
+    - Cheaper and lower power than H7, ideal if you're driving 3 MEMS accelerometer channels via analog front end
+    - Good if you want high sampling rate without jumping to the H7 price tier
+
+* STM32F407 / STM32F446 - best for prototyping
+    - Cortex-M4 @ 180 MHz, 320 KB SRAM
+    - 3× 12-bit ADCs at 3.6 MSPS (up to ~6 MSPS in triple interleaved)
+    - The NUCLEO-F446RE is the most commonly referenced dev board for vibration monitoring nodes in ST's own application notes 
+    - Massive community, easiest to get running in a day with CubeMX
+    - Sufficient for 10–20 kSPS triaxial with FFT — covers road texture and basic bearing fault detection
+    - The natural "start here" before stepping up to G4/H7
+
+Alternative ESP32 picks:
+
+| Variant | Core / Clock | ADC Max Rate | DNL / INL | Notes |
+|---------|-------------|-------------|-----------|-------|
+| **ESP32 (original)** | 2× LX6 @ 240 MHz | **2 Msps** (DIG) | ±7 / ±12 | Fastest ADC in the family, but worst linearity. 2× 8-bit DAC (unique). TWAI/CAN available. |
+| **ESP32-S3** | 2× LX7 @ 240 MHz | 100 kSPS | ±4 / ±8 | Better ADC accuracy, SIMD for DSP, USB OTG, up to 8 MB PSRAM. No DAC. |
+| **ESP32-C3** | 1× RISC-V @ 160 MHz | 100 kSPS | ±7 / ±12 | Only 6 ADC channels, 22 GPIO, no PSRAM. Cheapest. |
+| **ESP32-C5** | 1× RISC-V @ 160 MHz | 2 Msps | ±2 / ±4 | Newer. Best ADC accuracy in the family at high speed, but single-core. |
+| **ESP32-P4** | 2× RISC-V @ 400 MHz | High | Good | Newest high-performance part, but overkill for this use. |
+
+-->
